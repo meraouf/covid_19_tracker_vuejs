@@ -12,9 +12,14 @@
 export default {
     name : 'ChartData',
     props : ['Id', 'bg1', 'stats'],
+    data() {
+        return {
+            myChart : null
+        }
+    },
     mounted() {
         const ctx = document.getElementById(this.Id).getContext('2d')
-        const myChart = new Chart(ctx, {
+        this.myChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: [this.Id],
@@ -40,9 +45,9 @@ export default {
                 }
             }
         })
-        myChart.data.datasets[0].data[0] = this.stats
-        myChart.update()
-        console.log(myChart.data.datasets[0].data[0])
-    }   
+        // myChart.data.datasets[0].data[0] = this.stats
+        // myChart.update()
+        // console.log(myChart.data.datasets[0].data[0])
+    } 
 }
 </script>
